@@ -163,76 +163,21 @@ Set Types:		set, frozenset
 # LIST
 # ───────────────────────────────────────────────────────────────────────────
 
-fruit_list_1 = ["mango", "banana", "watermelon", "papaya", "avocado", "pineapple"]
-fruit_list_2 = list(("mango", "banana", "watermelon", "papaya", "avocado", "pineapple")) # explicit type casting
+list_1 = ["mango", "banana", "watermelon", "papaya", "avocado", "pineapple"]
+list_2 = list(("mango", "banana", "watermelon", "papaya", "avocado", "pineapple")) # explicit type casting
 
-print("fruit_list_1:", fruit_list_1)
-print("fruit_list_2:", fruit_list_2)
-
-#retrieve entries
-
-fruit_list_entry_1 = fruit_list_1[0]
-fruit_list_entry_2 = fruit_list_1[1]
-fruit_list_entry_3 = fruit_list_1[2]
-fruit_list_entry_4 = fruit_list_1[3]
-fruit_list_entry_5 = fruit_list_1[4]
-fruit_list_entry_6 = fruit_list_1[5]
-
-print("fruit_list_entry_1: ", fruit_list_entry_1)
-print("fruit_list_entry_2: ", fruit_list_entry_2)
-print("fruit_list_entry_3: ", fruit_list_entry_3)
-print("fruit_list_entry_4: ", fruit_list_entry_4)
-print("fruit_list_entry_5: ", fruit_list_entry_5)
-print("fruit_list_entry_6: ", fruit_list_entry_6)
-
-# negative indexing
-
-print("fruit_list_last_item: ", fruit_list_1[-1])
-print("fruit_list_2nd_last_item: ", fruit_list_1[-2])
-print("fruit_list_3rd_last_item: ", fruit_list_1[-3])
-print("fruit_list_4th_last_item: ", fruit_list_1[-4])
-print("fruit_list_5th_last_item: ", fruit_list_1[-5])
-print("fruit_list_6th_last_item: ", fruit_list_1[-6])
-# print("fruit_list_7th_last_item: ", fruit_list_1[-7])
-# IndexError: list index out of range
-
-
-# range of indexes
-
-print("index 2 (included) to 5 (excluded): ", fruit_list_1[2:5])
-print("beginning to 4 (excluded): ", fruit_list_1[:4])
-print("index 2 to end: ", fruit_list_1[2:])
-print("4th to last (included) to 2nd to last (excluded): ", fruit_list_1[-4:-2])
-
-# in
-
-if "apple" in fruit_list_1:
-	print("apple is in the list.")
-else:
-	print("apple is not in the list")
-
-if "avocado" in fruit_list_1:
-	print("avocado is in the list.")
-else:
-	print("avocado is not in the list")
-
-# length
-
-list_length = len(fruit_list_1)
-print("list_length:", list_length)
-
-# diff data type
-list_3 = ["Juan", 2, 45.0, 7j, True]
-print("list_3: ", list_3)
-
-
-print("length of list / the number of items in a list is retrieved by len():", len(fruit_list_1))
+print("list_1:", list_1)
+print("list_2:", list_2)
 
 # ───────────────────────────────────────────────────────────────────────────
 # TUPLE
 # ───────────────────────────────────────────────────────────────────────────
 
-# x = tuple(("apple", "banana", "cherry"))	tuple	
+tuple_1 = ("mango", "banana", "watermelon", "papaya", "avocado", "pineapple")	
+tuple_2 = tuple(("mango", "banana", "watermelon", "papaya", "avocado", "pineapple")) # explicit type casting
+
+print("tuple_1:", tuple_1)
+print("tuple_2:", tuple_2)
 
 # ───────────────────────────────────────────────────────────────────────────
 # RANGE
