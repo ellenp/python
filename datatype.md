@@ -1,9 +1,9 @@
 | Feature         | `list`             | `tuple`             | `set`                     | `dict`                 |
 | --------------- | ------------------ | ------------------- | ------------------------- | ---------------------- |
-| **Type**        | Ordered collection | Ordered collection  | Unordered collection      | Key-value pairs        |
+| **Type**        | ✅ Ordered collection | ✅ Ordered collection  | ❌ Unordered collection      | ✅ Key-value pairs        |
 | **Mutable?**    | ✅ Yes              | ❌ No                | ✅ Yes                     | ✅ Yes                  |
-| **Duplicates?** | ✅ Allowed          | ✅ Allowed           | ❌ Not allowed             | ❌ Keys unique          |
 | **Indexed?**    | ✅ Yes (by index)   | ✅ Yes (by index)    | ❌ No                      | ✅ Yes (by key)         |
+| **Duplicates?** | ✅ Allowed          | ✅ Allowed           | ❌ Not allowed             | ❌ Keys unique          |
 | **Syntax**      | `[1, 2, 3]`        | `(1, 2, 3)`         | `{1, 2, 3}`               | `{"a": 1, "b": 2}`     |
 | **Use Case**    | General collection | Fixed data (faster) | Unique items, fast lookup | Mapping keys to values |
 
@@ -11,10 +11,10 @@
 
 | Feature / Type             | `list`                   | `tuple`              | `set`                               | `dict`                          | `array.array`                | `numpy.array`                           |
 | -------------------------- | ------------------------ | -------------------- | ----------------------------------- | ------------------------------- | ---------------------------- | --------------------------------------- |
-| **Mutability**             | Mutable                  | Immutable            | Mutable (elements must be hashable) | Mutable (keys must be hashable) | Mutable                      | Mutable                                 |
-| **Ordering**               | Ordered (since 3.7)      | Ordered (since 3.7)  | Unordered                           | Ordered (since 3.7)             | Ordered                      | Ordered                                 |
-| **Indexing**               | Yes                      | Yes                  | No                                  | Keys only (not positional)      | Yes                          | Yes                                     |
-| **Duplicates Allowed**     | Yes                      | Yes                  | No                                  | No (keys), Yes (values)         | Yes                          | Yes                                     |
+| **Ordering**               | ✅ Ordered (since 3.7)      | ✅ Ordered (since 3.7)  | ❌ Unordered                           | ✅ Ordered (since 3.7)             | ✅ Ordered                      | ✅ Ordered                                 |
+| **Mutability**             | ✅ Mutable                  | ❌ Immutable            | ✅ Mutable (elements must be hashable) | ✅ Mutable (keys must be hashable) | ✅ Mutable                      | ✅ Mutable                                 |
+| **Indexing**               | ✅ Yes                      | ✅ Yes                  | ❌ No                                  | ✅ Keys only (not positional)      | ✅ Yes                          | ✅ Yes                                     |
+| **Duplicates Allowed**     | ✅ Yes                      | ✅ Yes                  | ❌ No                                  | ❌ No, keys should be unique (values can have duplicates)         | ✅ Yes                          | ✅ Yes                                     |
 | **Homogeneous Elements**   | No                       | No                   | No                                  | Keys & values can be any type   | Yes (same type only)         | Yes (same type preferred)               |
 | **Memory Efficiency**      | Medium                   | High                 | High                                | Medium                          | High                         | Very High (especially for large arrays) |
 | **Performance (Numerics)** | Slow                     | Slow                 | Not intended                        | Not intended                    | Faster than list             | Fastest (vectorized ops)                |

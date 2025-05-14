@@ -152,23 +152,95 @@ print("float_to_complex: ", float_to_complex)
 
 """
 ───────────────────────────────────────────────────────────────────────────
-3 TYPES OF NUMBERS:
-	1. INT
-		- whole number, positive or negative, unlimited length (unbounded)
-		- SOURCE: https://docs.python.org/3/whatsnew/3.0.html#integers
-	2. FLOAT
-		- with decimal value, positive or negative, unbounded.
-		- Can be used with e to denote power of 10
-		- e or E (case insensitive)
-	3. COMPLEX
+Sequence Types:	list, tuple, range
+Mapping Type:	dict
+Set Types:		set, frozenset
 
 ───────────────────────────────────────────────────────────────────────────
 """
 
+# ───────────────────────────────────────────────────────────────────────────
+# LIST
+# ───────────────────────────────────────────────────────────────────────────
 
-# x = list(("apple", "banana", "cherry"))	list	
+fruit_list_1 = ["mango", "banana", "watermelon", "papaya", "avocado", "pineapple"]
+fruit_list_2 = list(("mango", "banana", "watermelon", "papaya", "avocado", "pineapple")) # explicit type casting
+
+print("fruit_list_1:", fruit_list_1)
+print("fruit_list_2:", fruit_list_2)
+
+#retrieve entries
+
+fruit_list_entry_1 = fruit_list_1[0]
+fruit_list_entry_2 = fruit_list_1[1]
+fruit_list_entry_3 = fruit_list_1[2]
+fruit_list_entry_4 = fruit_list_1[3]
+fruit_list_entry_5 = fruit_list_1[4]
+fruit_list_entry_6 = fruit_list_1[5]
+
+print("fruit_list_entry_1: ", fruit_list_entry_1)
+print("fruit_list_entry_2: ", fruit_list_entry_2)
+print("fruit_list_entry_3: ", fruit_list_entry_3)
+print("fruit_list_entry_4: ", fruit_list_entry_4)
+print("fruit_list_entry_5: ", fruit_list_entry_5)
+print("fruit_list_entry_6: ", fruit_list_entry_6)
+
+# negative indexing
+
+print("fruit_list_last_item: ", fruit_list_1[-1])
+print("fruit_list_2nd_last_item: ", fruit_list_1[-2])
+print("fruit_list_3rd_last_item: ", fruit_list_1[-3])
+print("fruit_list_4th_last_item: ", fruit_list_1[-4])
+print("fruit_list_5th_last_item: ", fruit_list_1[-5])
+print("fruit_list_6th_last_item: ", fruit_list_1[-6])
+# print("fruit_list_7th_last_item: ", fruit_list_1[-7])
+# IndexError: list index out of range
+
+
+# range of indexes
+
+print("index 2 (included) to 5 (excluded): ", fruit_list_1[2:5])
+print("beginning to 4 (excluded): ", fruit_list_1[:4])
+print("index 2 to end: ", fruit_list_1[2:])
+print("4th to last (included) to 2nd to last (excluded): ", fruit_list_1[-4:-2])
+
+# in
+
+if "apple" in fruit_list_1:
+	print("apple is in the list.")
+else:
+	print("apple is not in the list")
+
+if "avocado" in fruit_list_1:
+	print("avocado is in the list.")
+else:
+	print("avocado is not in the list")
+
+# length
+
+list_length = len(fruit_list_1)
+print("list_length:", list_length)
+
+# diff data type
+list_3 = ["Juan", 2, 45.0, 7j, True]
+print("list_3: ", list_3)
+
+
+print("length of list / the number of items in a list is retrieved by len():", len(fruit_list_1))
+
+# ───────────────────────────────────────────────────────────────────────────
+# TUPLE
+# ───────────────────────────────────────────────────────────────────────────
+
 # x = tuple(("apple", "banana", "cherry"))	tuple	
+
+# ───────────────────────────────────────────────────────────────────────────
+# RANGE
+# ───────────────────────────────────────────────────────────────────────────
+
 # x = range(6)	range	
+
+
 # x = dict(name="John", age=36)	dict	
 # x = set(("apple", "banana", "cherry"))	set	
 # x = frozenset(("apple", "banana", "cherry"))	frozenset	
@@ -229,11 +301,3 @@ print("neg_zero???: ", bool(neg_zero))
 # x = memoryview(bytes(5))
 
 
-| Feature         | `list`             | `tuple`             | `set`                     | `dict`                 |
-| --------------- | ------------------ | ------------------- | ------------------------- | ---------------------- |
-| **Type**        | Ordered collection | Ordered collection  | Unordered collection      | Key-value pairs        |
-| **Mutable?**    | ✅ Yes              | ❌ No                | ✅ Yes                     | ✅ Yes                  |
-| **Duplicates?** | ✅ Allowed          | ✅ Allowed           | ❌ Not allowed             | ❌ Keys unique          |
-| **Indexed?**    | ✅ Yes (by index)   | ✅ Yes (by index)    | ❌ No                      | ✅ Yes (by key)         |
-| **Syntax**      | `[1, 2, 3]`        | `(1, 2, 3)`         | `{1, 2, 3}`               | `{"a": 1, "b": 2}`     |
-| **Use Case**    | General collection | Fixed data (faster) | Unique items, fast lookup | Mapping keys to values |
