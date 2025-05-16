@@ -39,6 +39,7 @@ def filter_data(data):
 def greet(name, greeting="Hello"):
     return f"{greeting}, {name}!"
 
+
 print(greet("Alice"))  # Output: Hello, Alice!
 print(greet("Bob", "Hi"))  # Output: Hi, Bob!
 
@@ -52,7 +53,16 @@ print(greet("Bob", "Hi"))  # Output: Hi, Bob!
 def multiply_numbers(a: int, b: int) -> int:
     return a * b
 
+# multiply_numbers("a", "b")
 
+# This will work.
+# c = "a" * 5
+# print("c:", c)
+# c: aaaaa
+
+# c = "a" * "b"
+# print("c:", c)
+# TypeError: can't multiply sequence by non-int of type 'str'
 
 # ───────────────────────────────────────────────────────────────────────────
 # 5. Write Docstrings
