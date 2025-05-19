@@ -2,7 +2,7 @@
 # SHOWING OUTPUTS
 # ───────────────────────────────────────────────────────────────────────────
 print(4) 
-print("Number: ",4) # Oh! we used multi-parameter print.
+print("Number: ",4, "HI") # Oh! we used multi-parameter print.
 print ("Hello!") # You can even have a space
 print('─' * 10, "This is like a separator", '─' * 10)
 print('─' * 20, "This is like a separator", '─' * 20)
@@ -72,7 +72,7 @@ print(num_1)
 # ───────────────────────────────────────────────────────────────────────────
 
 str1 = "This is a string."
-str2 = 'This is another string.'
+str2 = 'This is "another" string.'
 
 str3 = """This
 is
@@ -104,6 +104,10 @@ x = str(3)    # x will be '3'
 y = int(3)    # y will be 3
 z = float(3)  # z will be 3.0
 
+print("x:", x)
+print("y:", y)
+print("z:", z)
+
 print("x type: ", type(x))
 print("y type: ", type(y))
 print("z type: ", type(z))
@@ -113,6 +117,7 @@ print("z type: ", type(z))
 # MULTIPLE VARIABLE ASSIGNMENT
 # ───────────────────────────────────────────────────────────────────────────
 name, age, height = "Juan", 18, 180
+# TO DO: what's the importance of this?
 print(name)
 print(age)
 print(height)
@@ -131,7 +136,7 @@ print('Age is ', 5) # This will work.
 # ───────────────────────────────────────────────────────────────────────────
 
 array = ["apple", "banana", "cherry"]
-arr1, arr2, arr3 = array
+arr1, arr2, arr3 = ["apple", "banana", "cherry"]
 print(arr1)
 print(arr2)
 print(arr3)

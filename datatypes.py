@@ -192,7 +192,7 @@ for i in this_range:
 # ───────────────────────────────────────────────────────────────────────────
 # SET
 # ───────────────────────────────────────────────────────────────────────────
-set_1 = {"apple", "banana", "cherry"}
+set_1 = {"apple", "banana", "cherry", "apple"}
 set_2 = set(("apple", "banana", "cherry")) # explicit type casting
 
 print("set_1:", set_1)
@@ -243,9 +243,11 @@ print("bool_diff: ", bool_diff)
 print("bool_prod: ", bool_prod)
 print("bool_div: ", bool_div)
 
+print("True + True: ", bool1 + bool1)
+
 any_string = "Hi"
 pos_num = 1
-neg_num = 1
+neg_num = -1
 
 zero_string = "0"
 empty_string = ""
