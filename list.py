@@ -73,6 +73,15 @@ print("fruit_list:", fruit_list)
 fruit_list.insert(2,"crushed graham")
 print("fruit_list:", fruit_list)
 
+# Maria bought mango and graham crackers.
+fruit_list.extend(["mango", "graham crackers"])
+print("fruit_list:", fruit_list)
+
+# Julio also bought mango and graham crackers. But this time, let's store it in another list, cause Julio's main char LOL
+julio_fruits = ["mango", "graham crackers"]
+fruit_list.extend(julio_fruits)
+print("fruit_list:", fruit_list)
+
 # we have a "milk", we don't need "coconut"
 fruit_list.remove("coconut")
 print("fruit_list:", fruit_list)
@@ -89,13 +98,4 @@ print("fruit_list:", fruit_list)
 # you can also pop based on index
 index_1_fruit = fruit_list.pop(1)
 print("index_1_fruit:", index_1_fruit)
-print("fruit_list:", fruit_list)
-
-# Maria bought mango and graham crackers.
-fruit_list.extend(["mango", "graham crackers"])
-print("fruit_list:", fruit_list)
-
-# Julio also bought mango and graham crackers. But this time, let's store it in another list, cause Julio's main char LOL
-julio_fruits = ["mango", "graham crackers"]
-fruit_list.extend(julio_fruits)
 print("fruit_list:", fruit_list)
