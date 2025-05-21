@@ -57,3 +57,45 @@ print("list_length:", list_length)
 # diff data type
 list_3 = ["Juan", 2, 45.0, 7j, True]
 print("list_3: ", list_3)
+
+
+# market ran out of "avocado". we will use "coconut".
+fruit_list[4] = "coconut"
+print("fruit_list:", fruit_list)
+
+# wait, "banana", "watermelon", "papaya" are hard to find? Okay, let's just make "mango float" since we have "mango"
+# we're replacing 3 items with just 2.
+# start at the index you want (inclusive), end at the index + 1 (exclusives)
+fruit_list[1:4] = ["graham crackers", "milk"]
+print("fruit_list:", fruit_list)
+
+# we will need "crushed graham". Insert it between index 1, "graham crackers", and index 2, "milk" 
+fruit_list.insert(2,"crushed graham")
+print("fruit_list:", fruit_list)
+
+# we have a "milk", we don't need "coconut"
+fruit_list.remove("coconut")
+print("fruit_list:", fruit_list)
+
+# last item does not make sense. let's remove it.
+fruit_list.pop()
+print("fruit_list:", fruit_list)
+
+# actually, you can store the pop to a variable.
+last_fruit = fruit_list.pop()
+print("last_fruit:", last_fruit)
+print("fruit_list:", fruit_list)
+
+# you can also pop based on index
+index_1_fruit = fruit_list.pop(1)
+print("index_1_fruit:", index_1_fruit)
+print("fruit_list:", fruit_list)
+
+# Maria bought mango and graham crackers.
+fruit_list.extend(["mango", "graham crackers"])
+print("fruit_list:", fruit_list)
+
+# Julio also bought mango and graham crackers. But this time, let's store it in another list, cause Julio's main char LOL
+julio_fruits = ["mango", "graham crackers"]
+fruit_list.extend(julio_fruits)
+print("fruit_list:", fruit_list)
