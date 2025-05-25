@@ -1,3 +1,8 @@
+
+# ───────────────────────────────────────────────────────────────────────────
+# HOW TO ACCESS ITEMS
+# ───────────────────────────────────────────────────────────────────────────
+
 fruit_list = ["mango", "banana", "watermelon", "papaya", "avocado", "pineapple"]
 
 print("fruit_list:", fruit_list)
@@ -49,15 +54,24 @@ if "avocado" in fruit_list:
 else:
 	print("avocado is not in the list")
 
-# length
+# ───────────────────────────────────────────────────────────────────────────
+# LENGTH
+# ───────────────────────────────────────────────────────────────────────────
 
 list_length = len(fruit_list)
 print("list_length:", list_length)
 
-# diff data type
+# ───────────────────────────────────────────────────────────────────────────
+# DATATYPES
+# ───────────────────────────────────────────────────────────────────────────
+
 list_3 = ["Juan", 2, 45.0, 7j, True]
 print("list_3: ", list_3)
 
+
+# ───────────────────────────────────────────────────────────────────────────
+# MODIFY VALUES
+# ───────────────────────────────────────────────────────────────────────────
 
 # market ran out of "avocado". we will use "coconut".
 fruit_list[4] = "coconut"
@@ -68,6 +82,10 @@ print("fruit_list:", fruit_list)
 # start at the index you want (inclusive), end at the index + 1 (exclusives)
 fruit_list[1:4] = ["graham crackers", "milk"]
 print("fruit_list:", fruit_list)
+
+# ───────────────────────────────────────────────────────────────────────────
+# ADD VALUES
+# ───────────────────────────────────────────────────────────────────────────
 
 # we will need "crushed graham". Insert it between index 1, "graham crackers", and index 2, "milk" 
 fruit_list.insert(2,"crushed graham")
@@ -81,6 +99,11 @@ print("fruit_list:", fruit_list)
 julio_fruits = ["mango", "graham crackers"]
 fruit_list.extend(julio_fruits)
 print("fruit_list:", fruit_list)
+
+
+# ───────────────────────────────────────────────────────────────────────────
+# REMOVE VALUES
+# ───────────────────────────────────────────────────────────────────────────
 
 # we have a "milk", we don't need "coconut"
 fruit_list.remove("coconut")
@@ -99,3 +122,61 @@ print("fruit_list:", fruit_list)
 index_1_fruit = fruit_list.pop(1)
 print("index_1_fruit:", index_1_fruit)
 print("fruit_list:", fruit_list)
+
+
+# ───────────────────────────────────────────────────────────────────────────
+# LIST COMPREHENSION
+
+# newlist = [expression for item in iterable if condition == True]
+
+# newlist = []
+# for item in iterable:
+#   if condition == True:
+#     newlist.append(expression)
+
+# ───────────────────────────────────────────────────────────────────────────
+
+fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+newlist = []
+
+for x in fruits:
+  if "a" in x:
+    newlist.append(x)
+
+fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+newlist = [x for x in fruits if "a" in x]
+
+
+fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+
+newlist = [x.upper() for x in fruits if "n" in x]
+
+print(newlist)
+
+
+fruits2 = ["apple", "banana", "cherry", "kiwi", "mango"]
+
+newlist2 = []
+
+for x2 in fruits2:
+	if "n" in x2:
+		newlist2.append(x2.upper())
+
+print(newlist2)
+
+
+fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+
+newlist = [x.upper() for x in fruits]
+
+print(newlist)
+
+
+fruits2 = ["apple", "banana", "cherry", "kiwi", "mango"]
+
+newlist2 = []
+
+for x2 in fruits2:
+	newlist2.append(x2.upper())
+
+print(newlist2)
