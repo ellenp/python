@@ -164,6 +164,8 @@ for x2 in fruits2:
 
 print(newlist2)
 
+# The expression is the current item in the iteration, but it is also the outcome, which you can manipulate before it ends up like a list item in the new list:
+
 
 fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
 
@@ -180,3 +182,80 @@ for x2 in fruits2:
 	newlist2.append(x2.upper())
 
 print(newlist2)
+
+# The expression can also contain conditions, not like a filter, but as a way to manipulate the outcome:
+# Example: "Return the item if it is not banana, if it is banana return orange".
+
+fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+
+newlist = [x if x != "banana" else "orange" for x in fruits]
+
+print(newlist)
+
+
+fruits2 = ["apple", "banana", "cherry", "kiwi", "mango"]
+
+newlist2 = []
+
+for x2 in fruits2:
+    if x2 != "banana":
+        newlist2.append(x2)
+    else:
+        newlist2.append("orange")
+
+print(newlist2)
+
+
+
+# ───────────────────────────────────────────────────────────────────────────
+# LIST SORTING
+# ───────────────────────────────────────────────────────────────────────────
+
+
+fruit_list = ["mango", "banana", "watermelon", "papaya", "avocado", "pineapple"]
+print("fruit_list.sort(): ",fruit_list.sort())
+print("fruit_list: ", fruit_list)
+print("fruit_list.sort(reverse = True): ",fruit_list.sort(reverse = True))
+print("fruit_list: ", fruit_list)
+
+
+def myfunc(n):
+  return len(n)
+
+fruit_list.sort(key = myfunc)
+print("fruit_list: ", fruit_list)
+
+
+thislist = ["banana", "Orange", "Kiwi", "cherry"]
+thislist.sort()
+print(thislist)
+
+thislist = ["banana", "Orange", "Kiwi", "cherry"]
+thislist.sort(key = str.lower)
+print(thislist)
+
+
+thislist = ["banana", "Orange", "Kiwi", "cherry"]
+thislist.reverse()
+print(thislist)
+
+
+# ───────────────────────────────────────────────────────────────────────────
+# LIST COPY
+# ───────────────────────────────────────────────────────────────────────────
+
+
+fruit_list = ["mango", "banana", "watermelon", "papaya", "avocado", "pineapple"]
+fruit_salad = fruit_list
+print("fruit_list: ", fruit_list)
+print("fruit_salad: ", fruit_salad)
+
+fruit_list.pop()
+
+print("fruit_list: ", fruit_list)
+print("fruit_salad: ", fruit_salad)
+
+fruit_list = ["aaaaaaah your data", "is corrupted", "xnc,nxb75?/!&*kdjf12348"]
+
+print("fruit_list: ", fruit_list)
+print("fruit_salad: ", fruit_salad)
