@@ -242,6 +242,15 @@ print(thislist)
 
 # ───────────────────────────────────────────────────────────────────────────
 # LIST COPY
+#
+# You cannot copy a list simply by typing list2 = list1,
+# because: list2 will only be a reference to list1,
+# and changes made in list1 will automatically also be made in list2.
+# Unless you rewrite list1. LOL
+#
+# OPTION 1: old_list.copy()
+# OPTION 2: list(old_list)
+# OPTION 3: old_list[:]
 # ───────────────────────────────────────────────────────────────────────────
 
 
@@ -259,3 +268,55 @@ fruit_list = ["aaaaaaah your data", "is corrupted", "xnc,nxb75?/!&*kdjf12348"]
 
 print("fruit_list: ", fruit_list)
 print("fruit_salad: ", fruit_salad)
+
+# OPTION 1: old_list.copy()
+
+tropical_fruits_0 = fruit_salad.copy()
+print("fruit_salad: ", fruit_salad)
+print("tropical_fruits_0: ", tropical_fruits_0)
+
+# OPTION 2: list(old_list)
+
+tropical_fruits_1 = list(fruit_salad)
+
+print("fruit_salad: ", fruit_salad)
+print("tropical_fruits_1: ", tropical_fruits_1)
+
+# OPTION 3: old_list[:]
+
+tropical_fruits_2 = fruit_salad[:]
+
+print("fruit_salad: ", fruit_salad)
+print("tropical_fruits_2: ", tropical_fruits_2)
+
+
+# ───────────────────────────────────────────────────────────────────────────
+# LIST JOIN
+#
+# OPTION 1: plus sign (+)
+# OPTION 2: loop + appand()
+#
+# ───────────────────────────────────────────────────────────────────────────
+
+monday_orders = ['Order001', 'Order002']
+tuesday_orders = ['Order003']
+wednesday_orders = ['Order004', 'Order005']
+
+# OPTION 1: plus sign (+)
+
+
+weekly_orders_0 = monday_orders + tuesday_orders + wednesday_orders
+print(weekly_orders_0)
+
+# OPTION 2: loop + appand()
+
+weekly_orders_1 = []
+
+for x in monday_orders:
+  weekly_orders_1.append(x)
+for x in tuesday_orders:
+  weekly_orders_1.append(x)
+for x in wednesday_orders:
+  weekly_orders_1.append(x)
+
+print(weekly_orders_1)
