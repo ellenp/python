@@ -164,7 +164,8 @@ for x2 in fruits2:
 
 print(newlist2)
 
-# The expression is the current item in the iteration, but it is also the outcome, which you can manipulate before it ends up like a list item in the new list:
+# The expression is the current item in the iteration, but it is also the outcome,
+# which you can manipulate before it ends up like a list item in the new list:
 
 
 fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
@@ -291,7 +292,7 @@ print("tropical_fruits_2: ", tropical_fruits_2)
 
 
 # ───────────────────────────────────────────────────────────────────────────
-# LIST JOIN
+# LIST CONCATENATION
 #
 # OPTION 1: plus sign (+)
 # OPTION 2: loop + append()
