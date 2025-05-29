@@ -4,21 +4,36 @@ print("-"*50)
 print(f"CATEGORIES: {category_list}")
 print("-"*50)
 
-amount = input("Input mount: ")
+expenses = []
 
 while True:
-	category = input("Input category: ")
-	if category in category_list:
-		break
-	else:
-		print("Wrong category!")
-		continue
+	amount = input("Input mount: ")
 
-description = input("Input description: ")
+	while True:
+		category = input("Input category: ")
+		if category in category_list:
+			break
+		else:
+			print("Wrong category!")
+			continue
+
+	description = input("Input description: ")
+
+	expenses.append([amount, category, description])
+
+	while True:
+		continue_flag = input("Do you want to add another item? YES/NO: ")
+		if continue_flag == "YES" or continue_flag == "NO":
+			break
+		else:
+			print("Wrong input!")
+			continue
+	if continue_flag == "YES":
+		continue
+	else:
+		break
 
 
 print("-"*50)
-print(f"Amount: {amount}")
-print(f"Category: {category}")
-print(f"Description: {description}")
+print("expenses: ", expenses)
 print("-"*50)
