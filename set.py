@@ -29,3 +29,6 @@ unique_emails = set(raw_emails)
 for email in unique_emails:
     send_newsletter(email)
 
+thisset = {"apple", "banana", "cherry", True, 1, 2}
+
+print(thisset)

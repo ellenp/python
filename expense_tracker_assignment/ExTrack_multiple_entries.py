@@ -1,8 +1,8 @@
 category_list = {"FOOD", "TRANSPORTATION", "GROCERY"}
 
-print("-"*50)
+print("─"*50)
 print(f"CATEGORIES: {category_list}")
-print("-"*50)
+print("─"*50)
 
 expenses = []
 
@@ -34,6 +34,6 @@ while True:
 		break
 
 
-print("-"*50)
+print("─"*50)
 print("expenses: ", expenses)
-print("-"*50)
+print("─"*50)
