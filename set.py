@@ -29,17 +29,13 @@ unique_emails = set(raw_emails)
 for email in unique_emails:
     send_newsletter(email)
 
-thisset = {"apple", "banana", "cherry", True, 1, 2}
-
-print(thisset)
-
 # ───────────────────────────────────────────────────────────────────────────
 # The values True and 1 are considered the same value.
 # The same goes for False and 0.
 # ───────────────────────────────────────────────────────────────────────────
 
-set1 = {"apple", 1,  "banana", 0, "cherry"}
-set2 = {False, "google", 1, "apple", 2, True}
+set1 = {"apple", 1,  "banana", 0, True, "cherry", False}
+set2 = {False, "google", 1, "apple", 2, True, 0, -0}
 
 print("set1: ", set1)
 print("set2: ", set2)
