@@ -34,6 +34,16 @@ thisset = {"apple", "banana", "cherry", True, 1, 2}
 print(thisset)
 
 # ───────────────────────────────────────────────────────────────────────────
+# The values True and 1 are considered the same value.
+# The same goes for False and 0.
+# ───────────────────────────────────────────────────────────────────────────
+
+set1 = {"apple", 1,  "banana", 0, "cherry"}
+set2 = {False, "google", 1, "apple", 2, True}
+
+print("set1: ", set1)
+print("set2: ", set2)
+# ───────────────────────────────────────────────────────────────────────────
 # INTERSECTION - to get common items
 # ───────────────────────────────────────────────────────────────────────────
 
