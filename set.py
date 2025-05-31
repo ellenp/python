@@ -32,3 +32,15 @@ for email in unique_emails:
 thisset = {"apple", "banana", "cherry", True, 1, 2}
 
 print(thisset)
+
+# ───────────────────────────────────────────────────────────────────────────
+# INTERSECTION - to get common items
+# ───────────────────────────────────────────────────────────────────────────
+
+
+skills_required = {"Python", "SQL", "Git", "Docker"}
+applicant_skill = {"Python", "Git", "HTML"}
+
+skill_passed = skills_required & applicant_skill
+
+print("skill_passed: ", skill_passed)
