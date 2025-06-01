@@ -1,4 +1,50 @@
 # ───────────────────────────────────────────────────────────────────────────
+# NOTE
+# A parameter is the variable listed inside the parentheses in the function definition.
+# An argument is the value that is sent to the function when it is called.
+# ───────────────────────────────────────────────────────────────────────────
+
+# ───────────────────────────────────────────────────────────────────────────
+# Arbitrary Arguments *args
+# *args is a tuple
+# ───────────────────────────────────────────────────────────────────────────
+
+def print_social_media_handles(*handles):
+    for handle in handles:
+        print(handle)
+
+print_social_media_handles("my_page", "myPage", "mypage")
+
+def my_function(*kids):
+  print("The eldest child is " + kids[0])
+  print("The youngest child is " + kids[len(kids)-1])
+
+my_function("Emil", "Tobias", "Linus")
+
+# ───────────────────────────────────────────────────────────────────────────
+# Arbitrary Keyword Arguments **kwargs
+# **kwargs is a dictionary
+# ───────────────────────────────────────────────────────────────────────────
+
+def print_social_media_handles(**handles):
+    for media, handle in handles.items():
+        print(media, handle)
+
+print_social_media_handles(instagram = "my_page", youtube = "myPage", facebook="mypage")
+
+def my_function(**kids):
+  print("The eldest child is " + kids["eldest"])
+  print("The youngest child is " + kids["youngest"])
+
+my_function(eldest = "Emil", middle = "Tobias", youngest = "Linus")
+
+# ───────────────────────────────────────────────────────────────────────────
+# Positional-only arguments , /
+# Keyword-only arguments *,
+# ───────────────────────────────────────────────────────────────────────────
+
+
+# ───────────────────────────────────────────────────────────────────────────
 # 1. Use Descriptive Names
 # Choose meaningful names for your functions and parameters
 # to make your code self-explanatory.
