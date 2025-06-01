@@ -41,7 +41,69 @@ my_function(eldest = "Emil", middle = "Tobias", youngest = "Linus")
 # ───────────────────────────────────────────────────────────────────────────
 # Positional-only arguments , /
 # Keyword-only arguments *,
+
+
+#
+# 
 # ───────────────────────────────────────────────────────────────────────────
+
+# Positional advantage:
+# 1. Tight loops (e.g., millions of calls per second)
+# 2. Performance-critical libraries (e.g., math, numpy, pandas)
+
+def f_any(a, b):
+    return a + b
+    
+def f_kw(*, a, b):
+    return a + b
+
+def f_pos(a, b, /):
+    return a + b
+
+%timeit f_any(1, 2)        # ~25 ns
+%timeit f_kw(a=1, b=2)      # ~40–50 ns
+%timeit f_pos(1, 2)        # ~25 ns
+
+
+# Keyword advantage:
+# 1. Readability and clarity of code, esp for:
+#      - functions with default values
+#      - preventing ambiguity in API
+
+def save(filename, *, overwrite=False, compress=True):
+    pass
+
+save("data.csv", overwrite=True) # you don't have to guess if True is for compress or overwrite
+
+# Keyword advantage:
+# 2. Avoid mistakes in argument order
+
+def resize(image, width, height):
+  print(width, height)
+
+resize("image", 300, 400) # confusing
+
+def resize(image, *, width, height):
+  print(width, height)
+
+resize("image", width=300, height=400)
+resize("image", height=400, width=300)
+
+# Keyword advantage:
+# 3. Future extensibility
+
+def format_cell(cell, *, fontcolor="000000", border = 1):
+    pass
+
+format_cell("A1", "FFD8B1")
+
+def format_cell(cell, *, fontcolor="000000", backgroundcolor = "FFFFFF", border = 1):
+    pass
+
+format_cell("A1", "FFD8B1") # This is still valid, even if you added another parameter
+
+# ───────────────────────────────────────────────────────────────────────────
+
 
 
 # ───────────────────────────────────────────────────────────────────────────
