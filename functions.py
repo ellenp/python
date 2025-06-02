@@ -41,8 +41,6 @@ my_function(eldest = "Emil", middle = "Tobias", youngest = "Linus")
 # ───────────────────────────────────────────────────────────────────────────
 # Positional-only arguments , /
 # Keyword-only arguments *,
-
-
 #
 # 
 # ───────────────────────────────────────────────────────────────────────────
@@ -60,9 +58,33 @@ def f_kw(*, a, b):
 def f_pos(a, b, /):
     return a + b
 
-%timeit f_any(1, 2)        # ~25 ns
-%timeit f_kw(a=1, b=2)      # ~40–50 ns
-%timeit f_pos(1, 2)        # ~25 ns
+
+# %timeit f_any(1, 2)        # ~25 ns
+# %timeit f_kw(a=1, b=2)      # ~40–50 ns
+# %timeit f_pos(1, 2)        # ~25 ns
+
+import time
+
+start1 = time.perf_counter()
+f_any(1, 2)
+end1 = time.perf_counter()
+print(f"Time any: {end1 - start1:.10f} seconds")
+
+start2 = time.perf_counter()
+f_kw(a=1, b=2)
+end2 = time.perf_counter()
+print(f"Time kw: {end2 - start2:.10f} seconds")
+
+start3 = time.perf_counter()
+f_pos(1, 2)
+end3 = time.perf_counter()
+print(f"Time pos: {end3 - start3:.10f} seconds")
+
+
+import timeit
+print(timeit.timeit(lambda: f_any(1, 2), number=1000))    # 0.00011
+print(timeit.timeit(lambda: f_kw(a=1, b=2), number=1000)) # 0.00013
+print(timeit.timeit(lambda: f_pos(1, 2), number=1000))    # 0.00011
 
 
 # Keyword advantage:
