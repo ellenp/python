@@ -19,15 +19,16 @@ print(product(5, 6))
 
 # ───────────────────────────────────────────────────────────────────────────
 
-def f(multiplier):
-  return lambda number : number * multiplier
+def f(tax_percent):
+  return lambda gross_pay : gross_pay - (gross_pay * (tax_percent/100))
 
+level_1_tax_bracket = f(10)
+level_2_tax_bracket = f(20)
 
-doubler = f(2) # 2 is multiplier
-tripler = f(3) # 3 is multiplier
-
-print(doubler(11)) # 11 is number
-print(tripler(11)) # 11 is number
+print(level_1_tax_bracket(20000))
+print(level_1_tax_bracket(25000))
+print(level_2_tax_bracket(50000))
+print(level_2_tax_bracket(60000))
 
 # ───────────────────────────────────────────────────────────────────────────
 people = [
@@ -36,10 +37,8 @@ people = [
     {"name": "Charlie", "age": 35}
 ]
 
-# Sort by age
-sorted_people = sorted(people, key=lambda person: person['age'])
-print(sorted_people)
-
+print("people sorted by age: ", sorted(people, key=lambda person: person['age']))
+print("people sorted by name: ", sorted(people, key=lambda person: person['name']))
 
 # ───────────────────────────────────────────────────────────────────────────
 
