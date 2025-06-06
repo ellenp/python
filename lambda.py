@@ -1,23 +1,55 @@
 # ───────────────────────────────────────────────────────────────────────────
 # LAMBDA FUNCTIONS
 # --> Use this when an anonymous function is required for a short period of time.
+# 
 # lambda arguments : expression
 # ───────────────────────────────────────────────────────────────────────────
 
-a_variable_that_holds_the_call_to_an_unnamed_function_that_simply_adds_10_to_your_input = lambda num : num + 10
-print(a_variable_that_holds_the_call_to_an_unnamed_function_that_simply_adds_10_to_your_input(5))
-print(type(a_variable_that_holds_the_call_to_an_unnamed_function_that_simply_adds_10_to_your_input))
-# <class 'function'>
+def anonymous_func(x):
+    return x + 1
 
-# ───────────────────────────────────────────────────────────────────────────
+print("──────────────────────────────────────────────────────────────────────")
+print("─────────────────── assign the result to var ─────────────────────────")
+print("──────────────────────────────────────────────────────────────────────")
 
-product = lambda multiplicand_whatever, multiplier_whatever : multiplicand_whatever * multiplier_whatever
-print(product(5, 6))
+h = anonymous_func(10)
 
-# def product(multiplicand_whatever, multiplier_whatever):
-#    return multiplicand_whatever * multiplier_whatever
+print("h(10): ", h)
+print("type(h): ", type(h))
 
-# ───────────────────────────────────────────────────────────────────────────
+print("──────────────────────────────────────────────────────────────────────")
+print("────────────── assign the entire function to var ─────────────────────")
+print("──────────────────────────────────────────────────────────────────────")
+
+g = anonymous_func
+
+print("g(10): ", g(10))
+print("type(g): ", type(g))
+
+print("──────────────────────────────────────────────────────────────────────")
+print("──────────────────────── using lambda ────────────────────────────────")
+print("──────────────────────────────────────────────────────────────────────")
+
+f = lambda x: x + 1
+
+print("f(10): ", f(10))
+print("type(f): ", type(f))
+
+print("──────────────────────────────────────────────────────────────────────")
+print("────────────────────── multiple arguments ────────────────────────────")
+print("──────────────────────────────────────────────────────────────────────")
+
+p = lambda x, y : x * y
+print("p(5, 6):", p(5, 6))
+print("p(9, 7):", p(9, 7))
+
+# def p(x, y):
+#    return x * y
+
+
+print("──────────────────────────────────────────────────────────────────────")
+print("────────────────────── multiple arguments ────────────────────────────")
+print("──────────────────────────────────────────────────────────────────────")
 
 def f(tax_percent):
   return lambda gross_pay : gross_pay - (gross_pay * (tax_percent/100))
