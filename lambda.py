@@ -48,11 +48,13 @@ print("p(9, 7):", p(9, 7))
 
 
 print("──────────────────────────────────────────────────────────────────────")
-print("────────────────────── multiple arguments ────────────────────────────")
+print("──────────────────────────── closure ─────────────────────────────────")
 print("──────────────────────────────────────────────────────────────────────")
 
+# lambda inside a function
+
 def f(tax_percent):
-  return lambda gross_pay : gross_pay - (gross_pay * (tax_percent/100))
+  return lambda gross_pay : gross_pay - (gross_pay * (tax_percent / 100))
 
 level_1_tax_bracket = f(10)
 level_2_tax_bracket = f(20)
@@ -61,6 +63,103 @@ print(level_1_tax_bracket(20000))
 print(level_1_tax_bracket(25000))
 print(level_2_tax_bracket(50000))
 print(level_2_tax_bracket(60000))
+
+# however, you might notice that tax_percent is a variable defined outside of lambda
+# this is where the concept of closure comes.
+
+# Closure has 3 requirements:
+
+# 1. A nested function (function inside a function)
+# 2. The inner function uses variables from the outer function
+# 3. The outer function returns the inner function (or otherwise inner function escapes the outer function’s scope)
+
+def outer():
+    x = 10
+    def inner():
+        return x + 1
+    return inner  # <--- returns the function itself
+
+f = outer() # <--- here, you are assigning the function itself
+print(f())  # Outputs 11
+print(type(f))
+
+# not a closure:
+
+# Inner function uses variable from outer (x)
+# Inner function is called immediately and doesn’t escape outer()
+# Not a closure in the technical sense
+
+def outer():
+    x = 10
+    def inner():
+        return x + 1
+    result = inner()
+    return result
+
+f = outer() # <--- here, you are assigning the function itself
+print(f)  # Still outputs 11, but you did not have to pass emptry argument, because this is an int.
+print(type(f))
+
+
+
+# multiple variables accessed from the outer function:
+
+def tax_calculator(tax_percent):
+    pag_ibig = 100
+    def calc_net_pay(gross_pay):
+        return gross_pay - (gross_pay * (tax_percent / 100)) - pag_ibig
+    return calc_net_pay
+
+level_a_tax_bracket = tax_calculator(10)
+level_b_tax_bracket = tax_calculator(20)
+
+print(level_a_tax_bracket(20000))
+print(level_a_tax_bracket(25000))
+print(level_b_tax_bracket(50000))
+print(level_b_tax_bracket(60000))
+
+# proof that variables are still being carried around:
+
+print(level_a_tax_bracket.__closure__)  # shows the captured variables
+print(level_a_tax_bracket.__closure__[0].cell_contents)  # outputs: 100 - pag_ibig
+print(level_a_tax_bracket.__closure__[1].cell_contents)  # outputs: 10 - tax_percent
+# print(level_a_tax_bracket.__closure__[2].cell_contents)  # outputs: IndexError: tuple index out of range
+
+print(level_b_tax_bracket.__closure__)  # shows the captured variables
+print(level_b_tax_bracket.__closure__[0].cell_contents)  # outputs: 100 - pag_ibig
+print(level_b_tax_bracket.__closure__[1].cell_contents)  # outputs: 20 - tax_percent
+# print(level_b_tax_bracket.__closure__[2].cell_contents)  # outputs: IndexError: tuple index out of range
+
+# Can't I just use class and let multiple variables handle this behavior?
+
+# 1. Use class if you need multiple methods, closure if it's just 1 simple behavior.
+# 2. Use class if state needs to be stored over time, closure for quick capture.
+
+def make_retry_limiter(max_retries):
+    attempts = 0
+    def should_retry():
+        nonlocal attempts
+        if attempts < max_retries:
+            attempts += 1
+            return True
+        return False
+    return should_retry
+
+can_retry = make_retry_limiter(3)
+
+while can_retry():
+    print("Trying...")
+# After 3 tries, stops printing
+
+
+def make_tracker():
+    count = 0
+    def tracker():
+        nonlocal count
+        count += 1
+        print(f"Called {count} times")
+    return tracker
+
 
 # ───────────────────────────────────────────────────────────────────────────
 people = [
