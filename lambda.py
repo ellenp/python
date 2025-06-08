@@ -65,29 +65,12 @@ print(level_2_tax_bracket(50000))
 print(level_2_tax_bracket(60000))
 
 # however, you might notice that tax_percent is a variable defined outside of lambda
-# this is where the concept of closure comes.
+# let's introduce the concept of:
+#     - lexical scoping
+#     - closure
 
-# Closure has 3 requirements:
-
-# 1. A nested function (function inside a function)
-# 2. The inner function uses variables from the outer function
-# 3. The outer function returns the inner function (or otherwise inner function escapes the outer function’s scope)
-
-def outer():
-    x = 10
-    def inner():
-        return x + 1
-    return inner  # <--- returns the function itself
-
-f = outer() # <--- here, you are assigning the function itself
-print(f())  # Outputs 11
-print(type(f))
-
-# not a closure:
-
-# Inner function uses variable from outer (x)
-# Inner function is called immediately and doesn’t escape outer()
-# Not a closure in the technical sense
+# a function defined inside another function
+# can access the variables inside it's "enclosing scopes"
 
 def outer():
     x = 10
@@ -96,11 +79,33 @@ def outer():
     result = inner()
     return result
 
-f = outer() # <--- here, you are assigning the function itself
-print(f)  # Still outputs 11, but you did not have to pass emptry argument, because this is an int.
+f = outer() # <--- here, you are trying to assign the function itself, but since the function returns an int, f is int.
+print(f)  # Outputs 11, but you did not have to pass emptry argument like f(), because this is already an int.
 print(type(f))
 
+# Inner function uses variable from outer (x)
+# Inner function is called immediately and doesn’t escape outer()
+# In this case, x is gone after result was returned by outer.
+# This is not a closure.
 
+# Closure has 3 requirements:
+
+# 1. A nested function (function inside a function)
+# 2. The inner function uses variables from the outer function
+# 3. The outer function returns the inner function (or otherwise inner function escapes the outer function’s scope)
+#    ---> This means that the inner function closes over the variable.
+
+def outer():
+    x = 10
+    def inner():
+        return x + 1
+    return inner  # <--- returns the function itself
+
+f = outer() # <--- here, you are assigning the function itself, and since it returns a function, f is a function.
+print(f())  # Outputs 11
+print(type(f))
+
+# Therefore: closure = lexical scoping + retention of variables.
 
 # multiple variables accessed from the outer function:
 
