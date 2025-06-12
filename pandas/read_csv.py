@@ -54,3 +54,9 @@ data = {
 df = pd.DataFrame(data)
 
 print(df) 
+
+
+print(df.head(10))
+print(df.head())
+print(df.tail())
+print(df.info()) 
