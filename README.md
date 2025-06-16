@@ -21,23 +21,25 @@ _Actually I already started studying the basics last 2016, but I got sidetracked
 
 1. Install from official github download site
 2. Open command line
-3. git config --global user.name "username"
-4. git config --global user.email "email"
-5. mkdir python
-6. cd python
-7. type nul > README.md
-8. git add .
-9. git commit -m "Initial commit"
-10. git remote add origin https://github.com/username/python.git
-11. git branch -M main
-12. git push -u origin main
+3. ```git config --global user.name "username"```
+4. ```git config --global user.email "email"```
+5. ```mkdir python```
+6. ```cd python```
+7. Type ```nul > README.md```
+8. ```git add .```
+9. ```git commit -m "Initial commit"```
+10. ```git remote add origin https://github.com/username/python.git```
+11. ```git branch -M main```
+12. ```git push -u origin main```
 
 # Installation
 
 1. Download from official website
 2. To install extention...
+   
+   ```pip install <extension>```
 
 # Execute Python Code
 
-python filename.py
+```python <filename>.py```
 
